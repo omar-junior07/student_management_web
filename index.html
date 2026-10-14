@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b66">
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">SMS</div>
+    <div>
+      <h1>Student Management System</h1>
+      <p>Examination marks made simple</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">STUDENT RECORDS</p>
+        <h2>Manage examination results</h2>
+        <p class="muted">Add students, record marks from 0–100, and view grades and class averages.</p>
+      </div>
+      <button id="exportBtn" class="button button-secondary" type="button">Export CSV</button>
+    </section>
+
+    <section class="stats" aria-label="Class summary">
+      <article class="stat-card"><span>Total students</span><strong id="totalStudents">0</strong></article>
+      <article class="stat-card"><span>Class average</span><strong id="classAverage">—</strong></article>
+      <article class="stat-card"><span>Highest mark</span><strong id="highestMark">—</strong></article>
+      <article class="stat-card"><span>Pass rate (50+)</span><strong id="passRate">—</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div>
+          <h3>Add a student</h3>
+          <p class="muted small">This demo stores records in this browser on this device.</p>
+        </div>
+      </div>
+      <form id="studentForm" class="student-form">
+        <label>
+          Student name
+          <input id="studentName" name="studentName" type="text" maxlength="80" placeholder="e.g. Ama Mensah" required>
+        </label>
+        <label>
+          Examination mark
+          <input id="studentMark" name="studentMark" type="number" min="0" max="100" step="1" placeholder="0–100" required>
+        </label>
+        <button class="button button-primary" type="submit">Add student</button>
+      </form>
+      <p id="formMessage" class="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel">
+      <div class="table-heading">
+        <div>
+          <h3>Student results</h3>
+          <p class="muted small">Grade boundaries are examples and can be changed in app.js.</p>
+        </div>
+        <div class="table-actions">
+          <input id="searchInput" class="search" type="search" placeholder="Search students…" aria-label="Search students">
+          <button id="clearBtn" class="button button-danger-outline" type="button">Clear all</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>No.</th><th>Student name</th><th>Mark</th><th>Grade</th><th>Result</th><th>Action</th></tr></thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">▤</div>
+          <strong>No student records yet</strong>
+          <p>Add the first student using the form above.</p>
+        </div>
+      </div>
+      <div class="table-footer"><span id="recordCount">Showing 0 students</span><span>Maximum: 30 students</span></div>
+    </section>
+    <footer>Student Management System · Built with HTML, CSS and JavaScript arrays</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
